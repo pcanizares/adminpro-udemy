@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           //this.router.navigate(['/dashboard']);
           window.location.href='#/dashboard';
         }
-      )
+      );
 
     });
   }
@@ -88,6 +88,7 @@ export class LoginComponent implements OnInit {
       err => {
         console.error(err);
       }
+     );
      
 
   	//this.router.navigate(['/dashboard']);
