@@ -108,7 +108,11 @@ export class UsuarioService {
     //console.log(url);
 
     return this.http.put(url, usuario).pipe(map(res => {
-      this.guardarStorage(res['id'], this.token, res['usuario']);
+
+      if(usuario._id === this.usuario._id){
+        this.guardarStorage(res['id'], this.token, res['usuario']);
+      }
+
       swal('Usuario actualizado', usuario.nombre, 'success');
       return res;
     }));
@@ -126,6 +130,30 @@ export class UsuarioService {
     .catch(res => {
       console.log(res);
     });
+  }
+
+  cargarUsuarios(desde: number = 0){
+    let url = URL_SERVICIOS +'/usuario?desde='+desde;
+
+    return this.http.get(url);
+
+  }
+
+
+  buscarUsuario(termino: string){
+    let url = URL_SERVICIOS +'/busqueda/coleccion/usuarios/'+termino;
+    return this.http.get(url).pipe(map(res => {
+      return res['usuarios'];
+    }));
+  }
+
+
+  borrarUsuario(id: string){
+
+    let url = URL_SERVICIOS + '/usuario/'+id+'?token='+this.token;
+
+    return this.http.delete(url);
+
   }
 
 

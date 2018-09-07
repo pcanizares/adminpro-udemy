@@ -24,6 +24,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   	init_plugins();
 
+    if(this._us.estaLogueado()){
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+
   	this.forma = new FormGroup({
   		nombre: new FormControl(null, Validators.required),
   		correo: new FormControl(null, [Validators.required, Validators.email]),

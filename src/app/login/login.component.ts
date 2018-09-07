@@ -35,6 +35,12 @@ export class LoginComponent implements OnInit {
       this.recuerdame = true;
     }
 
+
+    if(this._us.estaLogueado()){
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+
   }
 
 
