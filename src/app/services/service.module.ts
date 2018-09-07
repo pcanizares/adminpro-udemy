@@ -8,7 +8,9 @@ import { SettingsService,
 				SidebarService, 
 				UsuarioService, 
 				LoginGuardGuard, 
-				SubirArchivoService } from './service.index';
+				SubirArchivoService,
+        HospitalService,
+        MedicoService } from './service.index';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { SettingsService,
   						UsuarioService, 
   						LoginGuardGuard, 
   						SubirArchivoService,
-              ModalUploadService
+              ModalUploadService,
+              HospitalService,
+              MedicoService
 	]
 })
 export class ServiceModule { }

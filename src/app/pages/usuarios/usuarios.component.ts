@@ -18,7 +18,7 @@ export class UsuariosComponent implements OnInit {
 
 	totalRegistros: number = 0;
 
-	cargando: boolean
+	cargando: boolean;
 
   constructor(
   	private _us: UsuarioService,

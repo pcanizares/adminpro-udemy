@@ -1,0 +1,57 @@
+<div class='row animated fadeIn'>
+	<div class='col-md-6'>
+		<div class='card card-body'>
+			
+			<h3 class='box-title-m-b-0'>Médico: {{medicoo.nombre}}</h3>
+
+			<div class='row'>
+
+				<div class='col-md-12'>
+
+					<form #forma='ngForm' ngNativeValidate (ngSubmit)='guardarMedico(forma)'>
+						
+						<div class='form-group'>
+							<label for=''>Nombre</label>
+							<input [(ngModel)]='medico.nombre' type="text" name="nombre" class='form-control' placeholder='Nombre del médico' required>
+						</div>
+
+						<div class='form-group'>
+							<label for=''>Hospital</label>
+							<select (change)='cambioHospital($event.target.value)' [(ngModel)]='medico.hospital' name='hospital' class='form-control' required>
+								<option value=''>-Seleccione hospital-</option>
+								<option *ngFor='let h of hospitales' [value]='h._id'>{{ h.nombre }}</option>
+							</select>
+						</div>
+
+						<button type='submit' class='btn btn-success waves-light waves-effect'><i class='fa fa-save'></i> Guardar</button>
+
+						<button [routerLink]="['/medicos']" type='button' class='btn btn-inverse waves-light waves-effect'><i class='fa fa-times'></i> Cancelar</button>
+
+					</form>
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div class='col-md-3'>
+		<div class='card card-body'>
+			<h4 class='box-title-m-b-0'>Hospital</h4>
+			<img [src]="hospital.img | imagen:'hospitales'" alt='' class='img-circle img-fluid'>
+		</div>
+	</div>
+
+	<div class='col-md-3' *ngIf='medico._id'>
+		<div class='card card-body'>
+			<h3 class='box-title-m-b-0'>Fotografía</h3>
+			<img [src]="medico.img | imagen:'medicos'" alt='' class='img-circle img-fluid pointer' (click)='cambiarFoto()'>
+		</div>
+	</div>
+
+
+</div>
