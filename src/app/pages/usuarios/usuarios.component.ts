@@ -13,16 +13,16 @@ declare var swal: any;
 })
 export class UsuariosComponent implements OnInit {
 
-	usuarios: Usuario[] = []; 
+	usuarios: Usuario[] = [];
 	desde: number = 0;
 
-	totalRegistros: number = 0;
+	totalRegistros: number = 0; 
 
 	cargando: boolean;
 
   constructor(
   	private _us: UsuarioService,
-    public _modalUploadService: ModalUploadService
+		public _modalUploadService: ModalUploadService
   ) { }
 
   ngOnInit() {
@@ -77,7 +77,7 @@ export class UsuariosComponent implements OnInit {
   			this.usuarios = res;
   			this.cargando = false;
   		}
-  	)
+  	);
 
   }
 
@@ -118,11 +118,11 @@ export class UsuariosComponent implements OnInit {
   		res => {
   			console.log(res);
   		}
-  	)
+  	);
   }
-
-  mostrarModal(id: string){
-    this._modalUploadService.mostrarModal('usuarios', id);
+	
+	mostrarModal(id: string){
+		this._modalUploadService.mostrarModal('usuarios', id);
   }
 
 
