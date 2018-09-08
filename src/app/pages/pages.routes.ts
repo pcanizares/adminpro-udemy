@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { LoginGuardGuard } from '../services/service.index';
 import { AdminGuard } from '../services/service.index';
+import { VerificaTokenGuard } from '../services/service.index';
 
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
@@ -20,12 +21,17 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 const pagesRoutes: Routes = [
-	{ 
+	/*{ 
 		path: '', 
 		component: PagesComponent,
 		canActivate: [LoginGuardGuard],
-		children: [
-			{ path: 'dashboard', component: DashboardComponent, data: {titulo: 'Dashboard'} },
+		children: [*/
+			{ 
+				path: 'dashboard', 
+				component: DashboardComponent, 
+				canActivate: [VerificaTokenGuard],
+				data: {titulo: 'Dashboard'} 
+			},
 			{ path: 'progress', component: ProgressComponent, data: {titulo: 'Progress Bars'} },
 			{ path: 'graficas1', component: Graficas1Component, data: {titulo: 'Gráficas'} },
 			{ path: 'account-settings', component: AccountSettingsComponent, data: {titulo: 'Ajustes de Tema'} },
@@ -48,8 +54,8 @@ const pagesRoutes: Routes = [
 			{ path: 'medicos', component: MedicosComponent, data: {titulo: 'Medicos'} },
 			{ path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Actualizar el médico'} },
 			{ path: '', pathMatch:'full', redirectTo:'/dashboard' },
-		]
-	}
+		/*]
+	}*/
 ]; 
 
 export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);

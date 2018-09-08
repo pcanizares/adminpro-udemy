@@ -13,7 +13,7 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+//import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
@@ -36,7 +36,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 
 @NgModule({
   declarations: [
-    PagesComponent,
+    //PagesComponent,
  		DashboardComponent,
     ProgressComponent,
     Graficas1Component,
@@ -47,7 +47,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     RxjsComponent,
     ProfileComponent,
     UsuariosComponent,
-    ModalUploadComponent,
+    //ModalUploadComponent,
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
